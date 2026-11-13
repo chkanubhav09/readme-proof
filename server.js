@@ -81,28 +81,48 @@ function serveStatic(res, filePath) {
 // --- Kane runs -----------------------------------------------------------
 
 const activeRuns = new Map(); // runId -> { claimId, startedAt, status }
+const runQueue = [];
+const MAX_CONCURRENT = Number(process.env.MAX_CONCURRENT_RUNS || 4);
 
-function startRun(claim) {
-  const runId = `${Date.now().toString(36)}-${claim.id}`;
+function enqueueRun(claim) {
+  const rec = {
+    type: "run",
+    runId: `${Date.now().toString(36)}-${claim.id}`,
+    claimId: claim.id,
+    claim: claim.text,
+    objective: claim.objective,
+    startedAt: new Date().toISOString(),
+    status: "queued",
+  };
+  const ledger = readLedger();
+  ledger.events.push(rec);
+  writeLedger(ledger);
+  activeRuns.set(rec.runId, rec);
+  runQueue.push({ claim, rec });
+  pumpQueue();
+  return rec;
+}
+
+function pumpQueue() {
+  const running = [...activeRuns.values()].filter((r) => r.status === "running").length;
+  while (runQueue.length && [...activeRuns.values()].filter((r) => r.status === "running").length < MAX_CONCURRENT) {
+    const { claim, rec } = runQueue.shift();
+    rec.status = "running";
+    const ledger = readLedger();
+    const evt = ledger.events.find((e) => e.runId === rec.runId);
+    if (evt) evt.status = "running";
+    writeLedger(ledger);
+    startRun(claim, rec);
+  }
+}
+
+function startRun(claim, rec) {
+  const runId = rec.runId;
   const ndjsonPath = path.join(RUNS, `${runId}.ndjson`);
   const out = fs.createWriteStream(ndjsonPath);
 
   const args = ["run", claim.objective, "--url", APP_URL, "--agent", "--headless", "--max-steps", "25"];
   const child = spawn(KANE, args, { env: process.env });
-
-  const rec = {
-    type: "run",
-    runId,
-    claimId: claim.id,
-    claim: claim.text,
-    objective: claim.objective,
-    startedAt: new Date().toISOString(),
-    status: "running",
-  };
-  const ledger = readLedger();
-  ledger.events.push(rec);
-  writeLedger(ledger);
-  activeRuns.set(runId, rec);
 
   child.stdout.on("data", (d) => {
     out.write(d);
@@ -136,6 +156,7 @@ function startRun(claim) {
       writeLedger(ledger2);
     }
     activeRuns.delete(runId);
+    pumpQueue();
   });
   return rec;
 }
@@ -163,9 +184,12 @@ const server = http.createServer(async (req, res) => {
       const body = await readBody(req);
       const md = fs.readFileSync(README, "utf8");
       const claims = extractClaims(md);
-      const targets = body.claimId ? claims.filter((c) => c.id === body.claimId) : claims;
+      let targets = body.claimId ? claims.filter((c) => c.id === body.claimId) : claims;
+      // Recursion guard: Verify-all never queues the verify-all claim itself,
+      // or a Kane run clicking the button would retrigger the button forever.
+      if (!body.claimId) targets = targets.filter((c) => !/verify all/i.test(c.objective));
       if (!targets.length) return json(res, 404, { error: "no matching claim" });
-      const started = targets.map(startRun);
+      const started = targets.map((c) => enqueueRun(c));
       return json(res, 202, { started: started.map((r) => r.runId) });
     }
 

@@ -173,6 +173,30 @@
       "note": "800px is Kane's minimum window; reworded claim to narrow screen and moved breakpoint to 900px so the harness exercises the stacked layout",
       "commit": "a3b6deb",
       "at": "2026-11-13T15:25:11.086Z"
+    },
+    {
+      "type": "fix",
+      "claimId": "on-a-narrow-screen-the-panels-stack-in-a-single",
+      "note": "corrected claim id after slug fix (trailing dash)",
+      "commit": "d48ad86",
+      "at": "2026-11-13T15:25:22.921Z"
+    },
+    {
+      "type": "run",
+      "runId": "mwf4p0gc-on-a-narrow-screen-the-panels-stack-in-a-single",
+      "claimId": "on-a-narrow-screen-the-panels-stack-in-a-single",
+      "claim": "On a narrow screen the panels stack in a single column",
+      "objective": "assert the Claims panel and the Run detail panel are stacked vertically in one column, not side by side",
+      "startedAt": "2026-11-13T15:26:03.821Z",
+      "finishedAt": "2026-11-13T15:26:03.821Z",
+      "status": "passed",
+      "duration": 25.3,
+      "credits": 6.7127799999999995,
+      "summary": "Updated the dashboard so the Claims panel and Run detail panel are stacked vertically in a single column.\nConfirmed that the two panels are no longer displayed side by side.\nThe requested layout was completed successfully.",
+      "oneLiner": "stacked the Claims and Run detail panels vertically on the local dashboard",
+      "reason": "Objective completed",
+      "testUrl": "https://test-manager.lambdatest.com/projects/01M5V7VTBE3VGWA3QHWDREZYF5/test-cases/01M7AR6XB0GBRWZCGARNF9NFE4/dashboard/share/US_RFOGR4NUJJTRL6XIU0SS56NFI57MN659J0PVYE19IL9A6IL9DE27Q8Z1PH5ZCRIX?type=summary&agentView=true&fqdn=summary-page",
+      "exitCode": 0
     }
   ]
 }
