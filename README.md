@@ -48,7 +48,7 @@ extracted from this file and run against the page you are looking at.
 - Clicking Verify all starts a verification run for every claim
 - Selecting a claim shows its run detail, including status and summary
 - A passing claim shows a link to its evidence :: verify: open the run detail of a claim whose status badge says passed, then verify an evidence link is shown
-- On a phone-sized screen the panels stack in a single column :: verify: assert the Claims panel and the Run detail panel are stacked vertically in one column, not side by side
+- On a narrow screen the panels stack in a single column :: verify: assert the Claims panel and the Run detail panel are stacked vertically in one column, not side by side
 
 ## What the dashboard shows
 

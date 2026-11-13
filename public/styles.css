@@ -174,7 +174,7 @@ footer {
 }
 footer code { font-family: var(--mono); }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   main { grid-template-columns: 1fr; padding: 12px; gap: 12px; }
   .topbar { padding: 12px; }
   .btn { padding: 10px 16px; }
