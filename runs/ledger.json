@@ -166,6 +166,13 @@
       "reason": "Final verification failed: \"the Claims panel and the Run detail panel are stacked vertically in one column, not side by side\"",
       "testUrl": "https://test-manager.lambdatest.com/projects/01M5V7VTBE3VGWA3QHWDREZYF5/test-cases/01M7AR4QHJS0HZ4FEPM8AB07YW/dashboard/share/US_UET9V2R9DPD19HRJ0PBV2S3IR6PCTTE7THLATIM9XRUTCTRA9LSR1CQ8GE3K0W8C?type=summary&agentView=true&fqdn=summary-page",
       "exitCode": 1
+    },
+    {
+      "type": "fix",
+      "claimId": "on-a-narrow-screen-the-panels-stack-in-a-si",
+      "note": "800px is Kane's minimum window; reworded claim to narrow screen and moved breakpoint to 900px so the harness exercises the stacked layout",
+      "commit": "a3b6deb",
+      "at": "2026-11-13T15:25:11.086Z"
     }
   ]
 }
