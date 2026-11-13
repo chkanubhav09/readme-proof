@@ -1,0 +1,16 @@
+{
+  "name": "readme-proof",
+  "version": "1.0.0",
+  "description": "Your README is a test suite: every claim verified against the running app by Kane CLI, with a visible agent verify/fix loop.",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "verify": "node scripts/verify.js",
+    "loop": "bash loop/agent-loop.sh",
+    "watch": "bash loop/on-save.sh",
+    "test": "kane-cli testrun run --match '^tests/' --tags readme --headless"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

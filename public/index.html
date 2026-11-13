@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>README PROOF</title>
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">✓</span>
+    <div>
+      <h1>README PROOF</h1>
+      <p class="tagline">every claim in your README, verified against the running app</p>
+    </div>
+  </div>
+  <div class="actions">
+    <span id="app-url" class="app-url"></span>
+    <button id="verify-all" class="btn primary">Verify all</button>
+  </div>
+</header>
+
+<main>
+  <section class="panel" aria-label="Claims">
+    <div class="panel-head">
+      <h2>Claims</h2>
+      <span id="score" class="score"></span>
+    </div>
+    <ul id="claims" class="claims"></ul>
+  </section>
+
+  <section class="panel" aria-label="Run detail">
+    <div class="panel-head">
+      <h2 id="detail-title">Run detail</h2>
+      <a id="evidence-link" class="evidence-link" target="_blank" rel="noopener" hidden>evidence ↗</a>
+    </div>
+    <div id="detail" class="detail empty">Select a claim to see its latest run.</div>
+    <pre id="ndjson" class="ndjson" hidden></pre>
+  </section>
+
+  <section class="panel wide" aria-label="Closed loop timeline">
+    <div class="panel-head">
+      <h2>Closed loop</h2>
+      <p class="hint">Kane run → agent reads the failure → fix → Kane re-runs</p>
+    </div>
+    <ol id="loop" class="loop"></ol>
+  </section>
+</main>
+
+<footer>
+  <span>Verified by <strong>Kane CLI</strong> · evidence pack per run · replayable <code>_test.md</code> in <code>tests/</code></span>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>
