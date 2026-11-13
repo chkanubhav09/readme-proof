@@ -11,7 +11,7 @@
       "status": "passed",
       "duration": 15,
       "credits": 11.505175,
-      "summary": "Verified that the page header reads “README PROOF.”\nThe page loaded successfully at the provided site, and the header matched the expected text.",
+      "summary": "Verified that the page header reads \u201cREADME PROOF.\u201d\nThe page loaded successfully at the provided site, and the header matched the expected text.",
       "oneLiner": "verified the README PROOF header on localhost",
       "reason": "Objective completed",
       "testUrl": "https://test-manager.lambdatest.com/projects/01M5V7VTBE3VGWA3QHWDREZYF5/test-cases/01M7AQR1YNAQ0MD5CFPNFWSHNB/dashboard/share/US_ZRSOS4XJ82WQEY5LHQHDEJZOIN4FQV8FX48W7ENVFAXRA9VVC7GIN0JZ2K6PT7V6?type=summary&agentView=true&fqdn=summary-page",
@@ -62,7 +62,7 @@
       "status": "passed",
       "duration": 18.1,
       "credits": 14.013950000000001,
-      "summary": "The requested dashboard view was opened.\nThe dashboard displayed a “Closed loop” section with the timeline: “Run → Agent reads the failure → Fix → Kane re-runs.”\nThe requested timeline was present successfully.",
+      "summary": "The requested dashboard view was opened.\nThe dashboard displayed a \u201cClosed loop\u201d section with the timeline: \u201cRun \u2192 Agent reads the failure \u2192 Fix \u2192 Kane re-runs.\u201d\nThe requested timeline was present successfully.",
       "oneLiner": "displayed the Closed loop timeline on the local dashboard",
       "reason": "Objective completed",
       "testUrl": "https://test-manager.lambdatest.com/projects/01M5V7VTBE3VGWA3QHWDREZYF5/test-cases/01M7AQVMM3BECEVMYG8RM6A094/dashboard/share/US_V9ZGDBKQMX6J5P9ZLXO3LZU9TE9J51MRIXJWXVHFCRFM4BIZ8EN2NJF1AIL5EJQ4?type=summary&agentView=true&fqdn=summary-page",
@@ -79,7 +79,7 @@
       "status": "passed",
       "duration": 52.6,
       "credits": 23.5716575,
-      "summary": "Selected a claim as requested.\nThe selected claim’s run details were displayed, including its status and summary.\nThe run detail showed a passed status.",
+      "summary": "Selected a claim as requested.\nThe selected claim\u2019s run details were displayed, including its status and summary.\nThe run detail showed a passed status.",
       "oneLiner": "selected a claim on the local claims page",
       "reason": "Objective completed",
       "testUrl": "https://test-manager.lambdatest.com/projects/01M5V7VTBE3VGWA3QHWDREZYF5/test-cases/01M7AQWTFXGPK5FT1J0QYAXHHK/dashboard/share/US_VDJPKW9MFBG76WUVKD6285V8RL4ULV1IU6ULII4P5GBO51MKLZMG78LJNF5XJNBH?type=summary&agentView=true&fqdn=summary-page",
@@ -96,7 +96,7 @@
       "status": "failed",
       "duration": 40.3,
       "credits": 14.33589,
-      "summary": "The agent only loaded and inspected the page, then made the final check. The target claim was still marked unverified with “never run,” and no claim detail was selected, so there was no passing result or evidence link to show.\nUpdate the test flow to verify “A passing claim shows a link to its evidence,” wait for a passing result, open the claim details, and then check for the evidence link.",
+      "summary": "The agent only loaded and inspected the page, then made the final check. The target claim was still marked unverified with \u201cnever run,\u201d and no claim detail was selected, so there was no passing result or evidence link to show.\nUpdate the test flow to verify \u201cA passing claim shows a link to its evidence,\u201d wait for a passing result, open the claim details, and then check for the evidence link.",
       "oneLiner": "The check expected an evidence link before the selected claim had been verified and opened.",
       "reason": "Final verification failed: \"A passing claim shows a link to its evidence\"",
       "testUrl": "https://test-manager.lambdatest.com/projects/01M5V7VTBE3VGWA3QHWDREZYF5/test-cases/01M7AQZBVPQZDDW0D8969DATN9/dashboard/share/US_HT0T46RGSUJDL93VSU19RRNZESGR03OM9G1EKM9AGUPGPW661PPVPRUO67NOT2A0?type=summary&agentView=true&fqdn=summary-page",
@@ -197,6 +197,153 @@
       "reason": "Objective completed",
       "testUrl": "https://test-manager.lambdatest.com/projects/01M5V7VTBE3VGWA3QHWDREZYF5/test-cases/01M7AR6XB0GBRWZCGARNF9NFE4/dashboard/share/US_RFOGR4NUJJTRL6XIU0SS56NFI57MN659J0PVYE19IL9A6IL9DE27Q8Z1PH5ZCRIX?type=summary&agentView=true&fqdn=summary-page",
       "exitCode": 0
+    },
+    {
+      "type": "fix",
+      "claimId": "clicking-verify-all-starts-a-verification-run-fo",
+      "note": "recursion guard: Verify-all no longer queues itself; runs queued 4-wide",
+      "commit": "92139dc",
+      "at": "2026-11-13T15:26:33.486Z"
+    },
+    {
+      "type": "run",
+      "runId": "mwf4qwp8-the-page-header-reads-readme-proof",
+      "claimId": "the-page-header-reads-readme-proof",
+      "claim": "The page header reads README PROOF",
+      "objective": "The page header reads README PROOF",
+      "startedAt": "2026-11-13T15:26:51.404Z",
+      "status": "interrupted",
+      "reason": "sandbox call timeout killed the server mid-run"
+    },
+    {
+      "type": "run",
+      "runId": "mwf4qwpf-every-claim-from-the-readme-is-listed-with-a-sta",
+      "claimId": "every-claim-from-the-readme-is-listed-with-a-sta",
+      "claim": "Every claim from the README is listed with a status badge",
+      "objective": "Every claim from the README is listed with a status badge",
+      "startedAt": "2026-11-13T15:26:51.411Z",
+      "status": "interrupted",
+      "reason": "sandbox call timeout killed the server mid-run"
+    },
+    {
+      "type": "run",
+      "runId": "mwf4qwph-each-listed-claim-has-a-verify-button",
+      "claimId": "each-listed-claim-has-a-verify-button",
+      "claim": "Each listed claim has a Verify button",
+      "objective": "Each listed claim has a Verify button",
+      "startedAt": "2026-11-13T15:26:51.413Z",
+      "status": "interrupted",
+      "reason": "sandbox call timeout killed the server mid-run"
+    },
+    {
+      "type": "run",
+      "runId": "mwf4qwpl-the-dashboard-shows-a-closed-loop-section-with-t",
+      "claimId": "the-dashboard-shows-a-closed-loop-section-with-t",
+      "claim": "The dashboard shows a Closed loop section with the run and fix timeline",
+      "objective": "The dashboard shows a Closed loop section with the run and fix timeline",
+      "startedAt": "2026-11-13T15:26:51.417Z",
+      "status": "interrupted",
+      "reason": "sandbox call timeout killed the server mid-run"
+    },
+    {
+      "type": "run",
+      "runId": "mwf4qwpr-selecting-a-claim-shows-its-run-detail-including",
+      "claimId": "selecting-a-claim-shows-its-run-detail-including",
+      "claim": "Selecting a claim shows its run detail, including status and summary",
+      "objective": "Selecting a claim shows its run detail, including status and summary",
+      "startedAt": "2026-11-13T15:26:51.423Z",
+      "status": "interrupted",
+      "reason": "sandbox call timeout killed the server mid-run"
+    },
+    {
+      "type": "run",
+      "runId": "mwf4qwpr-a-passing-claim-shows-a-link-to-its-evidence",
+      "claimId": "a-passing-claim-shows-a-link-to-its-evidence",
+      "claim": "A passing claim shows a link to its evidence",
+      "objective": "open the run detail of a claim whose status badge says passed, then verify an evidence link is shown",
+      "startedAt": "2026-11-13T15:26:51.423Z",
+      "status": "interrupted",
+      "reason": "sandbox call timeout killed the server mid-run"
+    },
+    {
+      "type": "run",
+      "runId": "mwf4qwpr-on-a-narrow-screen-the-panels-stack-in-a-single",
+      "claimId": "on-a-narrow-screen-the-panels-stack-in-a-single",
+      "claim": "On a narrow screen the panels stack in a single column",
+      "objective": "assert the Claims panel and the Run detail panel are stacked vertically in one column, not side by side",
+      "startedAt": "2026-11-13T15:26:51.423Z",
+      "status": "interrupted",
+      "reason": "sandbox call timeout killed the server mid-run"
+    },
+    {
+      "type": "run",
+      "runId": "mwf4tw0q-the-page-header-reads-readme-proof",
+      "claimId": "the-page-header-reads-readme-proof",
+      "claim": "The page header reads README PROOF",
+      "objective": "The page header reads README PROOF",
+      "startedAt": "2026-11-13T15:29:10.490Z",
+      "status": "interrupted",
+      "reason": "sandbox call timeout killed the server mid-run"
+    },
+    {
+      "type": "run",
+      "runId": "mwf4tw14-every-claim-from-the-readme-is-listed-with-a-sta",
+      "claimId": "every-claim-from-the-readme-is-listed-with-a-sta",
+      "claim": "Every claim from the README is listed with a status badge",
+      "objective": "Every claim from the README is listed with a status badge",
+      "startedAt": "2026-11-13T15:29:10.504Z",
+      "status": "interrupted",
+      "reason": "sandbox call timeout killed the server mid-run"
+    },
+    {
+      "type": "run",
+      "runId": "mwf4tw1a-each-listed-claim-has-a-verify-button",
+      "claimId": "each-listed-claim-has-a-verify-button",
+      "claim": "Each listed claim has a Verify button",
+      "objective": "Each listed claim has a Verify button",
+      "startedAt": "2026-11-13T15:29:10.510Z",
+      "status": "interrupted",
+      "reason": "sandbox call timeout killed the server mid-run"
+    },
+    {
+      "type": "run",
+      "runId": "mwf4tw1c-the-dashboard-shows-a-closed-loop-section-with-t",
+      "claimId": "the-dashboard-shows-a-closed-loop-section-with-t",
+      "claim": "The dashboard shows a Closed loop section with the run and fix timeline",
+      "objective": "The dashboard shows a Closed loop section with the run and fix timeline",
+      "startedAt": "2026-11-13T15:29:10.512Z",
+      "status": "interrupted",
+      "reason": "sandbox call timeout killed the server mid-run"
+    },
+    {
+      "type": "run",
+      "runId": "mwf4tw1f-selecting-a-claim-shows-its-run-detail-including",
+      "claimId": "selecting-a-claim-shows-its-run-detail-including",
+      "claim": "Selecting a claim shows its run detail, including status and summary",
+      "objective": "Selecting a claim shows its run detail, including status and summary",
+      "startedAt": "2026-11-13T15:29:10.515Z",
+      "status": "interrupted",
+      "reason": "sandbox call timeout killed the server mid-run"
+    },
+    {
+      "type": "run",
+      "runId": "mwf4tw1j-a-passing-claim-shows-a-link-to-its-evidence",
+      "claimId": "a-passing-claim-shows-a-link-to-its-evidence",
+      "claim": "A passing claim shows a link to its evidence",
+      "objective": "open the run detail of a claim whose status badge says passed, then verify an evidence link is shown",
+      "startedAt": "2026-11-13T15:29:10.519Z",
+      "status": "interrupted",
+      "reason": "sandbox call timeout killed the server mid-run"
+    },
+    {
+      "type": "run",
+      "runId": "mwf4tw1q-on-a-narrow-screen-the-panels-stack-in-a-single",
+      "claimId": "on-a-narrow-screen-the-panels-stack-in-a-single",
+      "claim": "On a narrow screen the panels stack in a single column",
+      "objective": "assert the Claims panel and the Run detail panel are stacked vertically in one column, not side by side",
+      "startedAt": "2026-11-13T15:29:10.526Z",
+      "status": "interrupted",
+      "reason": "sandbox call timeout killed the server mid-run"
     }
   ]
 }

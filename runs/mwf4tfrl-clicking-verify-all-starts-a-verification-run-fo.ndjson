@@ -1,0 +1,8 @@
+{"type":"stream_start","cli_version":"0.10.4","surface":"run","pid":7376,"v":1,"ts":"2026-11-13T15:28:50.427Z"}
+{"type":"recording_state","enabled":true,"session_id":"197bb670-18fb-4a58-90fd-08365eb2748a","persist":false,"v":1,"ts":"2026-11-13T15:28:50.459Z"}
+{"type":"skill_update_available","current":null,"latest":"0.1.4","install_cmd":"kane-cli install skill","v":1,"ts":"2026-11-13T15:28:52.453Z"}
+{"type":"bifurcation","flows":["Navigate to http://localhost:4173 then Clicking Verify all starts a verification run for every claim"],"count":1,"v":1,"ts":"2026-11-13T15:29:01.279Z"}
+{"step":2,"status":"running","remark":"Step 1","v":1,"ts":"2026-11-13T15:29:01.873Z"}
+{"step":2,"status":"done","remark":"navigate: Navigate to http://localhost:4173","v":1,"ts":"2026-11-13T15:29:01.876Z"}
+{"step":3,"status":"running","remark":"Step 2","v":1,"ts":"2026-11-13T15:29:06.232Z"}
+{"step":3,"status":"done","remark":"click: Clicking Verify all","v":1,"ts":"2026-11-13T15:29:11.441Z"}

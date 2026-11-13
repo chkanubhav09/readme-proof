@@ -4,14 +4,24 @@ const $ = (sel) => document.querySelector(sel);
 let state = { claims: [], events: [], active: [] };
 let selected = null;
 
+const CONCLUSIVE = ["passed", "failed"];
+
 function latestRunFor(claimId) {
   const runs = state.events.filter((e) => e.type === "run" && e.claimId === claimId);
   return runs[runs.length - 1] || null;
 }
 
+// Badge status follows the latest CONCLUSIVE run; an interrupted run
+// (sandbox/CI killed it) stays in the ledger and loop timeline but
+// does not shadow the last real result.
+function latestConclusiveRunFor(claimId) {
+  const runs = state.events.filter((e) => e.type === "run" && e.claimId === claimId && CONCLUSIVE.includes(e.status));
+  return runs[runs.length - 1] || null;
+}
+
 function statusOf(claim) {
   if (state.active.some((id) => id.endsWith(claim.id))) return "running";
-  const r = latestRunFor(claim.id);
+  const r = latestConclusiveRunFor(claim.id);
   return r ? r.status : "unverified";
 }
 
