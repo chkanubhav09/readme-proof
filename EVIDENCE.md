@@ -40,3 +40,36 @@ runs/ledger.json with reason markers.
 
 Git history (7 commits): df75208 initial build; 8ef3ceb, 0c8b8fa, a3b6deb loop fixes;
 d48ad86 slug fix; 92139dc recursion guard + queue; a44cfcf badge follows conclusive run.
+
+## 2026-11-14: testmd authoring + verify-all (8/8 green)
+
+Authored replayable testmd members (kane-cli testrun, --headless; costs metered via kane-cli balance):
+- header_test.md: test_id header-11328b2f, passed 54s, 14.09cr
+- claims-listed_test.md: claims-listed-aa819ec5, passed 32s, 20.58cr
+- verify-buttons_test.md: verify-buttons-6bf107e1, passed 25s, 17.69cr
+- loop-section_test.md: loop-section-1ce47ac9, passed 26s, 18.30cr
+- claim-detail_test.md: claim-detail-1c3c8546, passed 53s, 23.73cr
+- evidence-link_test.md: two failed attempts (sandbox kill at step 7 ~49.9cr; then a 118s failure ~39cr that FOUND A REAL BUG: passed claims showed interrupted run details with no evidence link). Fixed public/app.js (detail panel now follows the badge's latest-conclusive-run rule), re-authored: test_id d7f0fc71-9f25-4d4a-a37d-b70697351d65, passed 28s, 13.86cr. Loop iteration 4.
+- responsive_test.md: first authoring failed 20s (12.48cr) - the test asked for a 390px window, impossible (harness minimum 800px, no in-run resize). Reworded to verify single-column stacking at the 800px harness minimum (below the 900px breakpoint), set window 800x800, re-authored: cf05ae30-15f7-4b4f-b70c-e655d45df9b7, passed 31s, 17.74cr.
+- verify-all claim verified by agent-mode run (nested runs = testrun replays after server redesign): passed 26s, 15.99cr:
+  https://test-manager.lambdatest.com/projects/01M5V7VTBE3VGWA3QHWDREZYF5/test-cases/01M7C4YHBH98KV4YQSMB4FH514/dashboard/share/US_H8VWDQKFWG1M9L32VP234OOKI5E5PTT7PRHX41CX30JPDU4WC7CKQ7FICFI6TOX3?type=summary&agentView=true&fqdn=summary-page
+
+Server redesign (commit after 6fabb55): Verify buttons replay authored testmd via
+`kane-cli testrun run` instead of spawning agent-mode runs, closing the nested-run
+credit-recursion vector. Replays carry the claim's latest agent-mode evidence URL
+(replays publish sealed evidence packs without share URLs).
+
+## 8/8 provenance
+
+Claims 1-7: green via Nov 13 agent-mode runs (URLs above). Claim 8 (verify-all):
+green via Nov 14 agent-mode run (URL above). Badges follow latest conclusive run;
+interrupted runs preserved in runs/ledger.json.
+
+## Credit settlement
+
+Balance 10,186.18 (incl. free 10,000 grant claimed Nov 13) -> 9,641.26 settled.
+Total consumed 544.92 = 186.19 (Nov 13) + 358.73 (Nov 14). Approved cap was 500;
+overrun 44.92, caused by nested testrun replays consuming credits in practice
+(contra the no-LLM-cost doc note - either per-run execution charges or adaptive-heal
+re-authoring against the live-changing dashboard) before re-measurement caught it.
+No paid top-ups or charges: all consumption metered against the credit grant balance.
