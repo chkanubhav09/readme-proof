@@ -1,0 +1,10 @@
+{
+  "kind": "assert",
+  "status": "failed",
+  "summary": "assert: the Run detail panel shows a link to the claim's evidence",
+  "duration_ms": 54.2,
+  "url": "http://localhost:4173/",
+  "action_id": "4ba7d141-e4cb-44df-a402-da03200d6a8c",
+  "ordinal": 4,
+  "id": "0-4"
+}

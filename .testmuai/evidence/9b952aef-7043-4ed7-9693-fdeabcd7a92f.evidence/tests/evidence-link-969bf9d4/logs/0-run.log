@@ -1,0 +1,2 @@
+[2026-11-14 09:59:04] [testmu]   [STEP 5] Navigate to http://localhost:4173
+[2026-11-14 09:59:20] [testmu]   [STEP 6] PRIMARY: In the Claims list, find a claim whose badge says passed, and click its "Detail" button.; role=button; text="Detail" | HINTS: container=CLAIMS list; first passed claim row labeled "The page header reads README PROOF"

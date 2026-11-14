@@ -1,0 +1,14 @@
+{
+  "kind": "click",
+  "status": "passed",
+  "summary": "click: PRIMARY: In the Claims list, find a claim whose badge says passed, and click its",
+  "duration_ms": 7601.8,
+  "url": "http://localhost:4173/",
+  "action_id": "544051a1-d619-4073-8da2-d50423106b99",
+  "coordinates": {
+    "x": 172,
+    "y": 202
+  },
+  "ordinal": 3,
+  "id": "0-3"
+}

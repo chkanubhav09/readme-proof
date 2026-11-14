@@ -1,0 +1,12 @@
+{"type":"stream_start","cli_version":"0.10.4","surface":"testrun","pid":17380,"v":1,"ts":"2026-11-14T04:27:33.081Z"}
+{"type":"testrun_plan","members":[{"path":"/home/sandbox/readme-proof/tests/header_test.md","test_id":"deed039c-b734-4054-a07a-03b568805644","tags":["readme"]}],"valid":true,"parallel":1,"v":1,"ts":"2026-11-14T04:27:33.090Z"}
+{"type":"testrun_start","execution_id":"380d51b5-5076-4d5a-9dad-d7df4263e937","members":["tests/header_test.md"],"parallel":1,"v":1,"ts":"2026-11-14T04:27:33.607Z"}
+{"type":"testrun_member_start","path":"/home/sandbox/readme-proof/tests/header_test.md","test_id":"deed039c-b734-4054-a07a-03b568805644","session_id":"a2bd3af3-3c07-44d1-86db-dc34364dede5","log_path":"/home/sandbox/.testmuai/kaneai/sessions/a2bd3af3-3c07-44d1-86db-dc34364dede5/events.ndjson","v":1,"ts":"2026-11-14T04:27:33.610Z"}
+{"type":"testrun_progress","running":["tests/header_test.md"],"pending":0,"done":0,"total":1,"v":1,"ts":"2026-11-14T04:27:33.615Z"}
+{"type":"testrun_member_end","path":"/home/sandbox/readme-proof/tests/header_test.md","test_id":"deed039c-b734-4054-a07a-03b568805644","status":"passed","duration_s":32,"session_id":"a2bd3af3-3c07-44d1-86db-dc34364dede5","log_path":"/home/sandbox/.testmuai/kaneai/sessions/a2bd3af3-3c07-44d1-86db-dc34364dede5/events.ndjson","v":1,"ts":"2026-11-14T04:28:14.447Z"}
+{"type":"testrun_progress","running":[],"pending":0,"done":1,"total":1,"v":1,"ts":"2026-11-14T04:28:14.448Z"}
+{"type":"testrun_investigations_wait","count":1,"v":1,"ts":"2026-11-14T04:28:14.448Z"}
+{"type":"testrun_evidence_ingest","status":"ok","evidence_id":"380d51b5-5076-4d5a-9dad-d7df4263e937","v":1,"ts":"2026-11-14T04:28:15.301Z"}
+{"type":"coverage","status":"skipped","reason":"not_assurance_project","pack":"/home/sandbox/readme-proof/.testmuai/evidence/380d51b5-5076-4d5a-9dad-d7df4263e937.evidence","v":1,"ts":"2026-11-14T04:28:15.301Z"}
+{"type":"testrun_summary","execution":{"id":"380d51b5-5076-4d5a-9dad-d7df4263e937","status":"passed","evidence_id":"380d51b5-5076-4d5a-9dad-d7df4263e937"},"authored":[],"totals":{"tests":1,"passed":1,"failed":0,"broken":0,"skipped":0,"authored":0},"duration_s":41.725,"upload":"ok","cancelled":false,"v":1,"ts":"2026-11-14T04:28:15.303Z"}
+{"type":"testrun_done","execution_id":"380d51b5-5076-4d5a-9dad-d7df4263e937","overall_status":"passed","coverage":{"status":"skipped"},"v":1,"ts":"2026-11-14T04:28:15.303Z"}

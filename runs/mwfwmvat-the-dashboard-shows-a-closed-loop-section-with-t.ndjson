@@ -1,0 +1,11 @@
+{"type":"stream_start","cli_version":"0.10.4","surface":"testrun","pid":18159,"v":1,"ts":"2026-11-14T04:28:16.801Z"}
+{"type":"testrun_plan","members":[{"path":"/home/sandbox/readme-proof/tests/loop-section_test.md","test_id":"1f2102bd-f76b-4ca8-84bd-5ad55da99197","tags":["readme"]}],"valid":true,"parallel":1,"v":1,"ts":"2026-11-14T04:28:16.827Z"}
+{"type":"testrun_start","execution_id":"d5c907cc-d71a-4987-9b3f-1cd14771d4cf","members":["tests/loop-section_test.md"],"parallel":1,"v":1,"ts":"2026-11-14T04:28:17.110Z"}
+{"type":"testrun_member_start","path":"/home/sandbox/readme-proof/tests/loop-section_test.md","test_id":"1f2102bd-f76b-4ca8-84bd-5ad55da99197","session_id":"4da086f8-ce82-4543-ad8b-da0c15d86a20","log_path":"/home/sandbox/.testmuai/kaneai/sessions/4da086f8-ce82-4543-ad8b-da0c15d86a20/events.ndjson","v":1,"ts":"2026-11-14T04:28:17.111Z"}
+{"type":"testrun_progress","running":["tests/loop-section_test.md"],"pending":0,"done":0,"total":1,"v":1,"ts":"2026-11-14T04:28:17.111Z"}
+{"type":"testrun_member_end","path":"/home/sandbox/readme-proof/tests/loop-section_test.md","test_id":"1f2102bd-f76b-4ca8-84bd-5ad55da99197","status":"passed","duration_s":8,"session_id":"4da086f8-ce82-4543-ad8b-da0c15d86a20","log_path":"/home/sandbox/.testmuai/kaneai/sessions/4da086f8-ce82-4543-ad8b-da0c15d86a20/events.ndjson","v":1,"ts":"2026-11-14T04:28:26.440Z"}
+{"type":"testrun_progress","running":[],"pending":0,"done":1,"total":1,"v":1,"ts":"2026-11-14T04:28:26.441Z"}
+{"type":"testrun_evidence_ingest","status":"ok","evidence_id":"d5c907cc-d71a-4987-9b3f-1cd14771d4cf","v":1,"ts":"2026-11-14T04:28:27.614Z"}
+{"type":"coverage","status":"skipped","reason":"not_assurance_project","pack":"/home/sandbox/readme-proof/.testmuai/evidence/d5c907cc-d71a-4987-9b3f-1cd14771d4cf.evidence","v":1,"ts":"2026-11-14T04:28:27.615Z"}
+{"type":"testrun_summary","execution":{"id":"d5c907cc-d71a-4987-9b3f-1cd14771d4cf","status":"passed","evidence_id":"d5c907cc-d71a-4987-9b3f-1cd14771d4cf"},"authored":[],"totals":{"tests":1,"passed":1,"failed":0,"broken":0,"skipped":0,"authored":0},"duration_s":10.515,"upload":"ok","cancelled":false,"v":1,"ts":"2026-11-14T04:28:27.618Z"}
+{"type":"testrun_done","execution_id":"d5c907cc-d71a-4987-9b3f-1cd14771d4cf","overall_status":"passed","coverage":{"status":"skipped"},"v":1,"ts":"2026-11-14T04:28:27.618Z"}

@@ -1,0 +1,10 @@
+{
+  "kind": "",
+  "status": "passed",
+  "summary": "click: Clicking In the Claims list, find a claim whose badge says passed, and click its \"Detail\" button.",
+  "duration_ms": 4553.0,
+  "url": "http://localhost:4173/",
+  "action_id": "ca11f210-53ff-4be0-a315-e7fdc45b9b1e",
+  "ordinal": 2,
+  "id": "0-2"
+}

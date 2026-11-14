@@ -1,0 +1,5 @@
+{"type":"stream_start","cli_version":"0.10.4","surface":"testrun","pid":18631,"v":1,"ts":"2026-11-14T04:28:29.171Z"}
+{"type":"testrun_plan","members":[{"path":"/home/sandbox/readme-proof/tests/evidence-link_test.md","test_id":"d7f0fc71-9f25-4d4a-a37d-b70697351d65","tags":["readme"]}],"valid":true,"parallel":1,"v":1,"ts":"2026-11-14T04:28:29.182Z"}
+{"type":"testrun_start","execution_id":"9b952aef-7043-4ed7-9693-fdeabcd7a92f","members":["tests/evidence-link_test.md"],"parallel":1,"v":1,"ts":"2026-11-14T04:28:29.450Z"}
+{"type":"testrun_member_start","path":"/home/sandbox/readme-proof/tests/evidence-link_test.md","test_id":"d7f0fc71-9f25-4d4a-a37d-b70697351d65","session_id":"d0a8a727-9b79-4745-af51-d17a0641c25b","log_path":"/home/sandbox/.testmuai/kaneai/sessions/d0a8a727-9b79-4745-af51-d17a0641c25b/events.ndjson","v":1,"ts":"2026-11-14T04:28:29.451Z"}
+{"type":"testrun_progress","running":["tests/evidence-link_test.md"],"pending":0,"done":0,"total":1,"v":1,"ts":"2026-11-14T04:28:29.451Z"}

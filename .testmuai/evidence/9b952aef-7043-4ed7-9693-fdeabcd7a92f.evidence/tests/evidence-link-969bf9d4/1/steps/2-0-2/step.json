@@ -1,0 +1,20 @@
+{
+  "kind": "click",
+  "status": "passed",
+  "summary": "click: Clicking the Detail button for the passed claim in the claims list",
+  "duration_ms": 1057.6,
+  "url": "http://localhost:4173/",
+  "action_id": "0502a8a9-6a4d-431e-bf2e-408dcb1bdf89",
+  "coordinates": {
+    "x": 131,
+    "y": 206
+  },
+  "element_rect": {
+    "x": 105,
+    "y": 194,
+    "width": 53,
+    "height": 24
+  },
+  "ordinal": 2,
+  "id": "0-2"
+}
