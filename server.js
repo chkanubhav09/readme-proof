@@ -116,12 +116,50 @@ function pumpQueue() {
   }
 }
 
+// Authored testmd members: once a claim has an authored *_test.md, verifications
+// replay its recorded steps - no LLM authoring, so a run costs no credits and
+// finishes in seconds. This also makes Verify-all safe to click from inside a
+// Kane run: nested runs are replays, not fresh agent-mode runs.
+const TESTS = path.join(ROOT, "tests");
+const TESTMD = [
+  [/header-reads/i, "header_test.md"],
+  [/listed-with-a-sta/i, "claims-listed_test.md"],
+  [/has-a-verify-button/i, "verify-buttons_test.md"],
+  [/closed-loop-section/i, "loop-section_test.md"],
+  [/run-detail-including/i, "claim-detail_test.md"],
+  [/link-to-its-evidence/i, "evidence-link_test.md"],
+  [/narrow-screen/i, "responsive_test.md"],
+  [/verify-all-starts/i, "verify-all_test.md"],
+];
+
+function testmdFor(claimId) {
+  for (const [re, file] of TESTMD) {
+    if (re.test(claimId)) {
+      const p = path.join(TESTS, file);
+      if (fs.existsSync(p)) return p;
+    }
+  }
+  return null;
+}
+
+function lastEvidenceUrl(claimId) {
+  const ledger = readLedger();
+  for (let i = ledger.events.length - 1; i >= 0; i--) {
+    const e = ledger.events[i];
+    if (e.type === "run" && e.claimId === claimId && e.testUrl && (e.status === "passed" || e.status === "failed")) return e.testUrl;
+  }
+  return null;
+}
+
 function startRun(claim, rec) {
   const runId = rec.runId;
   const ndjsonPath = path.join(RUNS, `${runId}.ndjson`);
   const out = fs.createWriteStream(ndjsonPath);
 
-  const args = ["run", claim.objective, "--url", APP_URL, "--agent", "--headless", "--max-steps", "25"];
+  const testmd = testmdFor(claim.id);
+  const args = testmd
+    ? ["testrun", "run", testmd, "--agent", "--headless"]
+    : ["run", claim.objective, "--url", APP_URL, "--agent", "--headless", "--max-steps", "25"];
   const child = spawn(KANE, args, { env: process.env });
 
   child.stdout.on("data", (d) => {
@@ -141,17 +179,42 @@ function startRun(claim, rec) {
         }
       }
     } catch {}
+    let member = null;
+    if (testmd) {
+      try {
+        const raw = fs.readFileSync(ndjsonPath, "utf8").trim().split("\n");
+        for (let i = raw.length - 1; i >= 0; i--) {
+          const ev = JSON.parse(raw[i]);
+          if (ev.type === "testrun_authored_member_end") {
+            member = ev;
+            break;
+          }
+        }
+      } catch {}
+    }
     const ledger2 = readLedger();
     const evt = ledger2.events.find((e) => e.runId === runId);
     if (evt) {
-      evt.status = end ? end.status : code === 0 ? "passed" : "failed";
+      if (member) {
+        evt.status = member.status === "passed" ? "passed" : "failed";
+        evt.duration = member.duration_s;
+        evt.credits = 0; // replay of authored steps: no LLM authoring cost
+        evt.summary = `replay of ${path.basename(testmd)}`;
+        evt.testId = member.test_id || null;
+        // Replays publish a sealed evidence pack but no share URL; keep the
+        // claim's most recent agent-run evidence link alongside the replay.
+        evt.testUrl = lastEvidenceUrl(claim.id);
+        evt.evidenceNote = "step replay (0 credits); link is the latest agent-mode evidence for this claim";
+      } else {
+        evt.status = end ? end.status : code === 0 ? "passed" : "failed";
+        evt.duration = end && end.duration;
+        evt.credits = end && end.credits_consumed;
+        evt.summary = end && end.summary;
+        evt.oneLiner = end && end.one_liner;
+        evt.reason = end && end.reason;
+        evt.testUrl = end && end.test_url;
+      }
       evt.finishedAt = new Date().toISOString();
-      evt.duration = end && end.duration;
-      evt.credits = end && end.credits_consumed;
-      evt.summary = end && end.summary;
-      evt.oneLiner = end && end.one_liner;
-      evt.reason = end && end.reason;
-      evt.testUrl = end && end.test_url;
       evt.exitCode = code;
       writeLedger(ledger2);
     }

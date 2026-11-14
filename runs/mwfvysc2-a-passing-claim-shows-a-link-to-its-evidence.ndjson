@@ -1,0 +1,15 @@
+{"type":"stream_start","cli_version":"0.10.4","surface":"run","pid":13321,"v":1,"ts":"2026-11-14T04:08:49.357Z"}
+{"type":"recording_state","enabled":true,"session_id":"5c86a9a7-73b6-4f96-b313-f259b5ef71bc","persist":false,"v":1,"ts":"2026-11-14T04:08:49.368Z"}
+{"type":"skill_update_available","current":null,"latest":"0.1.4","install_cmd":"kane-cli install skill","v":1,"ts":"2026-11-14T04:08:51.091Z"}
+{"type":"bifurcation","flows":["Navigate to http://localhost:4173 then open the run detail of a claim whose status badge says passed, then verify an evidence link is shown"],"count":1,"v":1,"ts":"2026-11-14T04:09:02.150Z"}
+{"step":2,"status":"running","remark":"Step 1","v":1,"ts":"2026-11-14T04:09:03.913Z"}
+{"step":2,"status":"done","remark":"navigate: Navigate to http://localhost:4173","v":1,"ts":"2026-11-14T04:09:03.984Z"}
+{"step":3,"status":"running","remark":"Step 2","v":1,"ts":"2026-11-14T04:09:05.800Z"}
+{"step":3,"status":"done","remark":"click: Clicking Open the run detail of a claim whose status badge says passed","v":1,"ts":"2026-11-14T04:09:10.899Z"}
+{"step":4,"status":"running","remark":"Step 3","v":1,"ts":"2026-11-14T04:09:11.562Z"}
+{"step":4,"status":"done","remark":"click: PRIMARY: Open the run detail of a claim whose status badge says passed; role=but","v":1,"ts":"2026-11-14T04:09:20.582Z"}
+{"step":5,"status":"running","remark":"Step 4","v":1,"ts":"2026-11-14T04:09:21.299Z"}
+{"step":5,"status":"done","remark":"click: PRIMARY: Open the run detail of a claim whose status badge says passed; role=but","v":1,"ts":"2026-11-14T04:09:30.516Z"}
+{"step":6,"status":"running","remark":"Step 5","v":1,"ts":"2026-11-14T04:09:31.362Z"}
+{"step":6,"status":"done","remark":"click: PRIMARY: Open the run detail of a claim whose status badge says passed; role=but","v":1,"ts":"2026-11-14T04:09:42.373Z"}
+{"step":7,"status":"running","remark":"Step 6","v":1,"ts":"2026-11-14T04:09:43.051Z"}

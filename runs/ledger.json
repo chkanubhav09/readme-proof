@@ -344,6 +344,34 @@
       "startedAt": "2026-11-13T15:29:10.526Z",
       "status": "interrupted",
       "reason": "sandbox call timeout killed the server mid-run"
+    },
+    {
+      "type": "run",
+      "runId": "mwfvysc2-a-passing-claim-shows-a-link-to-its-evidence",
+      "claimId": "a-passing-claim-shows-a-link-to-its-evidence",
+      "claim": "A passing claim shows a link to its evidence",
+      "objective": "open the run detail of a claim whose status badge says passed, then verify an evidence link is shown",
+      "startedAt": "2026-11-14T04:08:48.626Z",
+      "status": "interrupted",
+      "reason": "orphaned when the sandbox killed the parent run; nested agent-mode run (pre-replay redesign)",
+      "finishedAt": "2026-11-14T04:17:30.000Z"
+    },
+    {
+      "type": "run",
+      "runId": "mwfw6lrc-a-passing-claim-shows-a-link-to-its-evidence",
+      "claimId": "a-passing-claim-shows-a-link-to-its-evidence",
+      "claim": "A passing claim shows a link to its evidence",
+      "objective": "open the run detail of a claim whose status badge says passed, then verify an evidence link is shown",
+      "startedAt": "2026-11-14T04:14:53.352Z",
+      "status": "failed",
+      "finishedAt": "2026-11-14T04:17:01.520Z",
+      "duration": null,
+      "credits": null,
+      "summary": null,
+      "oneLiner": null,
+      "reason": null,
+      "testUrl": null,
+      "exitCode": 143
     }
   ]
 }

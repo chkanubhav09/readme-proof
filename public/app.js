@@ -120,7 +120,10 @@ function select(claimId) {
 
 async function renderDetail(claimId) {
   const claim = state.claims.find((c) => c.id === claimId);
-  const run = latestRunFor(claimId);
+  // Detail follows the same rule as the badge: the latest CONCLUSIVE run.
+  // An interrupted run has no evidence to show and must not mask the last
+  // real proof (found by Kane: passed claims showed interrupted details).
+  const run = latestConclusiveRunFor(claimId) || latestRunFor(claimId);
   $("#detail-title").textContent = claim ? claim.text : "Run detail";
   const el = $("#detail");
   const link = $("#evidence-link");

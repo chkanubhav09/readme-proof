@@ -1,0 +1,21 @@
+{"type":"stream_start","cli_version":"0.10.4","surface":"run","pid":14770,"v":1,"ts":"2026-11-14T04:14:54.076Z"}
+{"type":"recording_state","enabled":true,"session_id":"3e0acfbf-d2d9-4201-8a2e-fa90380bc852","persist":false,"v":1,"ts":"2026-11-14T04:14:54.107Z"}
+{"type":"skill_update_available","current":null,"latest":"0.1.4","install_cmd":"kane-cli install skill","v":1,"ts":"2026-11-14T04:14:55.690Z"}
+{"type":"bifurcation","flows":["Navigate to http://localhost:4173 then open the run detail of a claim whose status badge says passed, then verify an evidence link is shown"],"count":1,"v":1,"ts":"2026-11-14T04:15:04.265Z"}
+{"step":2,"status":"running","remark":"Step 1","v":1,"ts":"2026-11-14T04:15:04.929Z"}
+{"step":2,"status":"done","remark":"navigate: Navigate to http://localhost:4173","v":1,"ts":"2026-11-14T04:15:04.932Z"}
+{"step":3,"status":"running","remark":"Step 2","v":1,"ts":"2026-11-14T04:15:07.804Z"}
+{"step":3,"status":"done","remark":"click: Clicking Open the run detail of a claim whose status badge says passed","v":1,"ts":"2026-11-14T04:15:12.826Z"}
+{"step":4,"status":"running","remark":"Step 3","v":1,"ts":"2026-11-14T04:15:13.502Z"}
+{"step":4,"status":"done","remark":"click: PRIMARY: Open the run detail of a claim whose status badge says passed; role=but","v":1,"ts":"2026-11-14T04:15:23.252Z"}
+{"step":5,"status":"running","remark":"Step 4","v":1,"ts":"2026-11-14T04:15:24.103Z"}
+{"step":5,"status":"done","remark":"click: Clicking Open the run detail of a claim whose status badge says passed","v":1,"ts":"2026-11-14T04:15:32.027Z"}
+{"step":6,"status":"running","remark":"Step 5","v":1,"ts":"2026-11-14T04:15:32.708Z"}
+{"step":6,"status":"done","remark":"click: PRIMARY: Open the run detail of a claim whose status badge says passed; role=but","v":1,"ts":"2026-11-14T04:15:39.655Z"}
+{"step":7,"status":"running","remark":"Step 6","v":1,"ts":"2026-11-14T04:15:40.352Z"}
+{"step":7,"status":"done","remark":"click: PRIMARY: Open the run detail of a claim whose status badge says passed; role=but","v":1,"ts":"2026-11-14T04:15:51.550Z"}
+{"step":8,"status":"running","remark":"Step 7","v":1,"ts":"2026-11-14T04:15:52.226Z"}
+{"step":8,"status":"done","remark":"click: PRIMARY: Verify button for the claim \"A passing claim shows a link to its eviden","v":1,"ts":"2026-11-14T04:16:03.846Z"}
+{"step":9,"status":"running","remark":"Step 8","v":1,"ts":"2026-11-14T04:16:04.660Z"}
+{"step":9,"status":"done","remark":"wait: PRIMARY: wait for the evidence claim verification to finish","v":1,"ts":"2026-11-14T04:16:57.483Z"}
+{"step":10,"status":"running","remark":"Step 9","v":1,"ts":"2026-11-14T04:16:58.141Z"}
