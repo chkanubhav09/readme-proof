@@ -82,9 +82,16 @@ the app under test:
    "interrupted", matching the ledger's existing convention for killed runs.
 
 After the repair the evidence-link badge again follows its latest conclusive
-run, the Nov 13 agent-mode pass (run 7 above), so the board shows 8/8 green,
-matching the provenance above. The Closed loop timeline keeps the killed runs
-visible, as designed.
+run, the Nov 13 agent-mode pass (run 7 above), so the board shows 8/8 green on
+latest conclusive runs, matching the provenance above. The Closed loop timeline
+keeps the killed runs visible, as designed.
+
+UI follow-up (same day): a green badge next to a newer interrupted attempt's
+timestamp read as a fresh pass. Each claim row now labels its conclusive result
+with its own date, flags any newer interrupted attempt in amber, and the Run
+detail panel states "historical recorded result, not a fresh re-verification".
+The score line reads "passed · latest conclusive runs" instead of "claims
+verified". No green count is claimed beyond the badge rule.
 
 ## Credit settlement
 

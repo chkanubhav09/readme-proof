@@ -129,6 +129,11 @@ main {
 
 .claim-meta { display: flex; gap: 10px; align-items: center; font-size: 12px; color: var(--muted); font-family: var(--mono); flex-wrap: wrap; }
 
+.attempt-warn { color: var(--amber); font-family: var(--mono); font-size: 11.5px; }
+.provenance { color: var(--muted); font-size: 12px; font-family: var(--mono); margin-bottom: 6px; }
+.ndjson::before { content: attr(data-caption); display: block; color: var(--muted); margin-bottom: 6px; font-size: 11px; }
+.ndjson[data-caption=""]::before { display: none; }
+
 .detail { font-size: 14px; white-space: pre-wrap; word-break: break-word; }
 .detail.empty { color: var(--muted); }
 .detail .k { color: var(--muted); }

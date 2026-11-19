@@ -43,14 +43,18 @@ function render() {
 
   const verified = state.claims.filter((c) => statusOf(c) === "passed").length;
   $("#score").textContent = state.claims.length
-    ? `${verified}/${state.claims.length} claims verified`
+    ? `${verified}/${state.claims.length} passed · latest conclusive runs`
     : "no claims found in README";
 
   const ul = $("#claims");
   ul.innerHTML = "";
   for (const c of state.claims) {
     const st = statusOf(c);
-    const run = latestRunFor(c.id);
+    const conc = latestConclusiveRunFor(c.id);
+    const attempt = latestRunFor(c.id);
+    // A newer non-conclusive attempt (interrupted/queued/running) must not hide
+    // behind the conclusive badge: flag it on the row itself.
+    const newerAttempt = attempt && attempt !== conc && !CONCLUSIVE.includes(attempt.status);
     const li = document.createElement("li");
     li.className = "claim" + (selected === c.id ? " selected" : "");
     li.innerHTML = `
@@ -59,10 +63,11 @@ function render() {
         <span class="claim-text"></span>
       </div>
       <div class="claim-meta">
-        ${run ? `<span>${fmtTime(run.startedAt)}</span>` : "<span>never run</span>"}
-        ${run && run.duration ? `<span>${run.duration.toFixed(1)}s</span>` : ""}
-        ${run && run.credits ? `<span>${run.credits.toFixed(1)} cr</span>` : ""}
+        ${conc
+          ? `<span>conclusive ${conc.status} · ${fmtTime(conc.startedAt)}</span>${conc.duration ? `<span>${conc.duration.toFixed(1)}s</span>` : ""}${conc.credits ? `<span>${conc.credits.toFixed(1)} cr</span>` : ""}`
+          : "<span>never run</span>"}
       </div>
+      ${newerAttempt ? `<div class="attempt-warn">latest attempt ${escapeHtml(attempt.status)} · ${fmtTime(attempt.startedAt)} · no pass/fail result recorded</div>` : ""}
       <div class="claim-meta">
         <button class="btn small" data-verify>Verify</button>
         <button class="btn small" data-detail>Detail</button>
@@ -132,10 +137,24 @@ async function renderDetail(claimId) {
     el.textContent = "Never verified. Hit Verify to run this claim with Kane CLI.";
     link.hidden = true;
     $("#ndjson").hidden = true;
+    $("#ndjson").dataset.caption = "";
     return;
   }
   el.className = "detail";
   el.innerHTML = "";
+  const conc = latestConclusiveRunFor(claimId);
+  const attempt = latestRunFor(claimId);
+  const newerAttempt = attempt && attempt !== conc && !CONCLUSIVE.includes(attempt.status);
+  const prov = document.createElement("div");
+  prov.className = "provenance";
+  prov.textContent = `latest conclusive run · ${fmtTime(run.startedAt)} · historical recorded result, not a fresh re-verification`;
+  el.appendChild(prov);
+  if (newerAttempt) {
+    const warn = document.createElement("div");
+    warn.className = "attempt-warn";
+    warn.textContent = `latest attempt ${attempt.status} · ${fmtTime(attempt.startedAt)} · no pass/fail result recorded; kept in the Closed loop timeline`;
+    el.appendChild(warn);
+  }
   const rows = [
     ["status", run.status],
     ["objective", run.objective],
@@ -160,6 +179,7 @@ async function renderDetail(claimId) {
 
   const nd = $("#ndjson");
   nd.hidden = false;
+  nd.dataset.caption = `event stream · latest conclusive run · ${fmtTime(run.startedAt)}`;
   nd.textContent = "loading event stream…";
   try {
     const res = await fetch(`/api/runs/${run.runId}`);
