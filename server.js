@@ -104,7 +104,6 @@ function enqueueRun(claim) {
 }
 
 function pumpQueue() {
-  const running = [...activeRuns.values()].filter((r) => r.status === "running").length;
   while (runQueue.length && [...activeRuns.values()].filter((r) => r.status === "running").length < MAX_CONCURRENT) {
     const { claim, rec } = runQueue.shift();
     rec.status = "running";
@@ -117,9 +116,10 @@ function pumpQueue() {
 }
 
 // Authored testmd members: once a claim has an authored *_test.md, verifications
-// replay its recorded steps - no LLM authoring, so a run costs no credits and
-// finishes in seconds. This also makes Verify-all safe to click from inside a
-// Kane run: nested runs are replays, not fresh agent-mode runs.
+// replay its recorded steps - no fresh LLM authoring, so a run finishes in
+// seconds. (Replays are still metered by the CLI; see EVIDENCE.md.) This also
+// makes Verify-all safe to click from inside a Kane run: nested runs are
+// replays, not fresh agent-mode runs.
 const TESTS = path.join(ROOT, "tests");
 const TESTMD = [
   [/header-reads/i, "header_test.md"],
@@ -185,7 +185,11 @@ function startRun(claim, rec) {
         const raw = fs.readFileSync(ndjsonPath, "utf8").trim().split("\n");
         for (let i = raw.length - 1; i >= 0; i--) {
           const ev = JSON.parse(raw[i]);
-          if (ev.type === "testrun_authored_member_end") {
+          // Kane emits "testrun_member_end" for an authored-test replay.
+          // ("testrun_authored_member_end" was a wrong guess: every replay fell
+          // through to the exit-code branch and lost its result data - loop
+          // iteration 5, see EVIDENCE.md 2026-11-20.)
+          if (ev.type === "testrun_member_end" || ev.type === "testrun_authored_member_end") {
             member = ev;
             break;
           }
@@ -198,13 +202,16 @@ function startRun(claim, rec) {
       if (member) {
         evt.status = member.status === "passed" ? "passed" : "failed";
         evt.duration = member.duration_s;
-        evt.credits = 0; // replay of authored steps: no LLM authoring cost
+        // member_end carries no credit reading and the CLI does meter replays
+        // (EVIDENCE.md credit settlement), so leave the cost unknown rather
+        // than claim zero.
+        evt.credits = null;
         evt.summary = `replay of ${path.basename(testmd)}`;
         evt.testId = member.test_id || null;
         // Replays publish a sealed evidence pack but no share URL; keep the
         // claim's most recent agent-run evidence link alongside the replay.
         evt.testUrl = lastEvidenceUrl(claim.id);
-        evt.evidenceNote = "step replay (0 credits); link is the latest agent-mode evidence for this claim";
+        evt.evidenceNote = "step replay (credits not reported); link is the latest agent-mode evidence for this claim";
       } else {
         evt.status = end ? end.status : code === 0 ? "passed" : "failed";
         evt.duration = end && end.duration;
@@ -274,7 +281,7 @@ const server = http.createServer(async (req, res) => {
     if (p.startsWith("/api/runs/") && req.method === "GET") {
       const runId = p.split("/").pop();
       const file = path.join(RUNS, `${runId}.ndjson`);
-      if (!file.startsWith(RUNS) || !fs.existsSync(file)) return json(res, 404, { error: "unknown run" });
+      if (!file.startsWith(RUNS + path.sep) || !fs.existsSync(file)) return json(res, 404, { error: "unknown run" });
       res.writeHead(200, { "content-type": "application/x-ndjson" });
       return fs.createReadStream(file).pipe(res);
     }
@@ -283,7 +290,7 @@ const server = http.createServer(async (req, res) => {
     if (p === "/readme") return serveStatic(res, README);
 
     const safe = path.normalize(path.join(PUBLIC, p));
-    if (safe.startsWith(PUBLIC)) return serveStatic(res, safe);
+    if (safe.startsWith(PUBLIC + path.sep)) return serveStatic(res, safe);
     res.writeHead(403);
     return res.end();
   } catch (e) {

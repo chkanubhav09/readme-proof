@@ -1,4 +1,7 @@
-# Demo video script (3-5 min) - draft for review, not yet recorded
+# Demo video script
+
+Recorded and submitted: https://youtu.be/gA3Nt-EHHU8 (3:10, narrated, bottom
+caption strip). The script below is the outline the recorded cut follows.
 
 Target: show the loop closing, live. Solo entry, screen recording + voiceover.
 

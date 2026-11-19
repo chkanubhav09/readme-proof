@@ -88,6 +88,6 @@ iteration is preserved in `runs/ledger.json` and told in the demo video.
 
 ## Hackathon
 
-Entry for the Kane CLI Online Hackathon (Nov 12-19, 2026), solo. Agent: an AI coding
+Entry for the Kane CLI Online Hackathon (Nov 12-26, 2026), solo. Agent: an AI coding
 agent driving the repo; verifier: Kane CLI in agent mode (`--agent --headless`),
 NDJSON `run_end` events parsed programmatically after every run.
