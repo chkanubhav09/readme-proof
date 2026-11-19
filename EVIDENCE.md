@@ -65,6 +65,27 @@ Claims 1-7: green via Nov 13 agent-mode runs (URLs above). Claim 8 (verify-all):
 green via Nov 14 agent-mode run (URL above). Badges follow latest conclusive run;
 interrupted runs preserved in runs/ledger.json.
 
+## 2026-11-20: replay parse fix (loop iteration 5)
+
+Post-submission self-review (no new Kane runs, zero credits) found two recording
+bugs in how replay results landed in the ledger - both in the recorder, not in
+the app under test:
+
+1. Wrong event name: server.js looked for `testrun_authored_member_end`; Kane
+   emits `testrun_member_end`. All six completed Nov 14 testmd replays fell
+   through to the exit-code branch, dropping duration, test id, summary and the
+   preserved evidence link. Fixed in f9ee22d; the six entries were backfilled
+   from their own committed NDJSON streams.
+2. Killed runs labeled failed: the two evidence-link replays (mwfw6lrc,
+   mwfwmvav) were SIGTERM-killed at the sandbox ~120s limit before any result
+   event - their streams end mid-run - but were recorded as "failed". Relabeled
+   "interrupted", matching the ledger's existing convention for killed runs.
+
+After the repair the evidence-link badge again follows its latest conclusive
+run, the Nov 13 agent-mode pass (run 7 above), so the board shows 8/8 green,
+matching the provenance above. The Closed loop timeline keeps the killed runs
+visible, as designed.
+
 ## Credit settlement
 
 Balance 10,186.18 (incl. free 10,000 grant claimed Nov 13) -> 9,641.26 settled.

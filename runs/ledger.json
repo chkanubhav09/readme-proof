@@ -363,13 +363,13 @@
       "claim": "A passing claim shows a link to its evidence",
       "objective": "open the run detail of a claim whose status badge says passed, then verify an evidence link is shown",
       "startedAt": "2026-11-14T04:14:53.352Z",
-      "status": "failed",
+      "status": "interrupted",
       "finishedAt": "2026-11-14T04:17:01.520Z",
       "duration": null,
       "credits": null,
       "summary": null,
       "oneLiner": null,
-      "reason": null,
+      "reason": "sandbox killed the replay (exit 143, SIGTERM) before any result event; the stream ends mid-run",
       "testUrl": null,
       "exitCode": 143
     },
@@ -381,14 +381,16 @@
       "objective": "The page header reads README PROOF",
       "startedAt": "2026-11-14T04:27:32.203Z",
       "status": "passed",
-      "duration": null,
+      "duration": 32,
       "credits": null,
-      "summary": null,
+      "summary": "replay of header_test.md",
       "oneLiner": null,
       "reason": null,
-      "testUrl": null,
+      "testUrl": "https://test-manager.lambdatest.com/projects/01M5V7VTBE3VGWA3QHWDREZYF5/test-cases/01M7AQR1YNAQ0MD5CFPNFWSHNB/dashboard/share/US_ZRSOS4XJ82WQEY5LHQHDEJZOIN4FQV8FX48W7ENVFAXRA9VVC7GIN0JZ2K6PT7V6?type=summary&agentView=true&fqdn=summary-page",
       "finishedAt": "2026-11-14T04:28:16.062Z",
-      "exitCode": 0
+      "exitCode": 0,
+      "testId": "deed039c-b734-4054-a07a-03b568805644",
+      "evidenceNote": "step replay (credits not reported); link is the latest agent-mode evidence for this claim"
     },
     {
       "type": "run",
@@ -398,14 +400,16 @@
       "objective": "Every claim from the README is listed with a status badge",
       "startedAt": "2026-11-14T04:27:32.209Z",
       "status": "passed",
-      "duration": null,
+      "duration": 29,
       "credits": null,
-      "summary": null,
+      "summary": "replay of claims-listed_test.md",
       "oneLiner": null,
       "reason": null,
-      "testUrl": null,
+      "testUrl": "https://test-manager.lambdatest.com/projects/01M5V7VTBE3VGWA3QHWDREZYF5/test-cases/01M7AQS614NK5677T3WE4W8H00/dashboard/share/US_G903JZ844J3UMZFETX9VK3L3BGQ70DL6AFO2Z2MME8IJ39IJT9XLQ73CUZODQTO2?type=summary&agentView=true&fqdn=summary-page",
       "finishedAt": "2026-11-14T04:28:06.462Z",
-      "exitCode": 0
+      "exitCode": 0,
+      "testId": "4f59f3cd-1e65-4939-a9e8-aaf6a49c38b3",
+      "evidenceNote": "step replay (credits not reported); link is the latest agent-mode evidence for this claim"
     },
     {
       "type": "run",
@@ -415,14 +419,16 @@
       "objective": "Each listed claim has a Verify button",
       "startedAt": "2026-11-14T04:27:32.212Z",
       "status": "passed",
-      "duration": null,
+      "duration": 12,
       "credits": null,
-      "summary": null,
+      "summary": "replay of verify-buttons_test.md",
       "oneLiner": null,
       "reason": null,
-      "testUrl": null,
+      "testUrl": "https://test-manager.lambdatest.com/projects/01M5V7VTBE3VGWA3QHWDREZYF5/test-cases/01M7AQTF1DY2MKMCB1JWABFE6V/dashboard/share/US_4SW7Q9Z2BE4BJCJBORF5QVKJT4CHI70SISPW6HFPI9NR7HW2698W8JZXIT6ZTTZW?type=summary&agentView=true&fqdn=summary-page",
       "finishedAt": "2026-11-14T04:28:23.110Z",
-      "exitCode": 0
+      "exitCode": 0,
+      "testId": "7884184f-dd1a-4dbf-8c92-cdaf3b81e089",
+      "evidenceNote": "step replay (credits not reported); link is the latest agent-mode evidence for this claim"
     },
     {
       "type": "run",
@@ -432,14 +438,16 @@
       "objective": "The dashboard shows a Closed loop section with the run and fix timeline",
       "startedAt": "2026-11-14T04:27:32.213Z",
       "status": "passed",
-      "duration": null,
+      "duration": 8,
       "credits": null,
-      "summary": null,
+      "summary": "replay of loop-section_test.md",
       "oneLiner": null,
       "reason": null,
-      "testUrl": null,
+      "testUrl": "https://test-manager.lambdatest.com/projects/01M5V7VTBE3VGWA3QHWDREZYF5/test-cases/01M7AQVMM3BECEVMYG8RM6A094/dashboard/share/US_V9ZGDBKQMX6J5P9ZLXO3LZU9TE9J51MRIXJWXVHFCRFM4BIZ8EN2NJF1AIL5EJQ4?type=summary&agentView=true&fqdn=summary-page",
       "finishedAt": "2026-11-14T04:28:28.375Z",
-      "exitCode": 0
+      "exitCode": 0,
+      "testId": "1f2102bd-f76b-4ca8-84bd-5ad55da99197",
+      "evidenceNote": "step replay (credits not reported); link is the latest agent-mode evidence for this claim"
     },
     {
       "type": "run",
@@ -449,14 +457,16 @@
       "objective": "Selecting a claim shows its run detail, including status and summary",
       "startedAt": "2026-11-14T04:27:32.213Z",
       "status": "passed",
-      "duration": null,
+      "duration": 25,
       "credits": null,
-      "summary": null,
+      "summary": "replay of claim-detail_test.md",
       "oneLiner": null,
       "reason": null,
-      "testUrl": null,
+      "testUrl": "https://test-manager.lambdatest.com/projects/01M5V7VTBE3VGWA3QHWDREZYF5/test-cases/01M7AQWTFXGPK5FT1J0QYAXHHK/dashboard/share/US_VDJPKW9MFBG76WUVKD6285V8RL4ULV1IU6ULII4P5GBO51MKLZMG78LJNF5XJNBH?type=summary&agentView=true&fqdn=summary-page",
       "finishedAt": "2026-11-14T04:28:53.093Z",
-      "exitCode": 0
+      "exitCode": 0,
+      "testId": "756c8d07-63c0-4abf-8b21-b44d07edbc31",
+      "evidenceNote": "step replay (credits not reported); link is the latest agent-mode evidence for this claim"
     },
     {
       "type": "run",
@@ -465,12 +475,12 @@
       "claim": "A passing claim shows a link to its evidence",
       "objective": "open the run detail of a claim whose status badge says passed, then verify an evidence link is shown",
       "startedAt": "2026-11-14T04:27:32.215Z",
-      "status": "failed",
+      "status": "interrupted",
       "duration": null,
       "credits": null,
       "summary": null,
       "oneLiner": null,
-      "reason": null,
+      "reason": "sandbox killed the replay (exit 143, SIGTERM) before any result event; the stream ends mid-run",
       "testUrl": null,
       "finishedAt": "2026-11-14T04:29:27.838Z",
       "exitCode": 143
@@ -483,14 +493,16 @@
       "objective": "assert the Claims panel and the Run detail panel are stacked vertically in one column, not side by side",
       "startedAt": "2026-11-14T04:27:32.215Z",
       "status": "passed",
-      "duration": null,
+      "duration": 7,
       "credits": null,
-      "summary": null,
+      "summary": "replay of responsive_test.md",
       "oneLiner": null,
       "reason": null,
-      "testUrl": null,
+      "testUrl": "https://test-manager.lambdatest.com/projects/01M5V7VTBE3VGWA3QHWDREZYF5/test-cases/01M7AR6XB0GBRWZCGARNF9NFE4/dashboard/share/US_RFOGR4NUJJTRL6XIU0SS56NFI57MN659J0PVYE19IL9A6IL9DE27Q8Z1PH5ZCRIX?type=summary&agentView=true&fqdn=summary-page",
       "finishedAt": "2026-11-14T04:29:04.495Z",
-      "exitCode": 0
+      "exitCode": 0,
+      "testId": "cf05ae30-15f7-4b4f-b70c-e655d45df9b7",
+      "evidenceNote": "step replay (credits not reported); link is the latest agent-mode evidence for this claim"
     },
     {
       "type": "run",
@@ -506,6 +518,13 @@
       "summary": "Clicked Verify all; claims began showing running status. Nested runs were testrun replays of authored testmd.",
       "testUrl": "https://test-manager.lambdatest.com/projects/01M5V7VTBE3VGWA3QHWDREZYF5/test-cases/01M7C4YHBH98KV4YQSMB4FH514/dashboard/share/US_H8VWDQKFWG1M9L32VP234OOKI5E5PTT7PRHX41CX30JPDU4WC7CKQ7FICFI6TOX3?type=summary&agentView=true&fqdn=summary-page",
       "exitCode": 0
+    },
+    {
+      "type": "fix",
+      "claimId": "a-passing-claim-shows-a-link-to-its-evidence",
+      "note": "replay result parsing: Kane emits testrun_member_end, not testrun_authored_member_end, so replays lost duration/summary/evidence link; two sandbox-killed replays (exit 143, no result event) were recorded as failed and are now labeled interrupted. Replay entries backfilled from their own NDJSON streams.",
+      "commit": "f9ee22d",
+      "at": "2026-11-19T18:40:00.000Z"
     }
   ]
 }
